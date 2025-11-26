@@ -35,7 +35,46 @@ Generates an easy-to-read summary showing:
 - failed login counts  
 - suspicious IP addresses  
 
----
+Next Steps (Planned Features)
 
-## 📂 Project Structure
+These features will be added in future commits:
+
+🔸 Additional Detection Rules
+
+SQL injection keywords
+
+Path traversal (../)
+
+Enumeration attempts
+
+HTTP error spikes (403/404/500 patterns)
+
+🔸 Support for Multiple Log Types
+
+Apache/Nginx access logs
+
+System event logs
+
+Application logs
+
+🔸 Exporting Alerts
+
+JSON output
+
+CSV reports
+
+🔸 Modular Architecture
+
+Separate modules for:
+
+parsing
+
+detection
+
+reporting
+
+Status
+
+This is an active work-in-progress project.
+More features will be added as I expand the detection engine and support additional log formats.
 
