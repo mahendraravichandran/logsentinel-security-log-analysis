@@ -42,7 +42,26 @@ def analyze_log_file(path: str):
         "failed_logins": failed_logins,
     }
 def print_report(result):
-    
+     print("=== LogSentinel Prototype Report ===")
+    print(f"Total log lines     : {result['total']}")
+    print(f"Parsed successfully : {result['parsed']}\n")
+
+    print("Failed login attempts by IP:")
+    if not result["failed_logins"]:
+        print("  No failed logins found.")
+    else:
+        for ip, count in result["failed_logins"].items():
+            print(f"  {ip}: {count}")
+
+    print(f"\nSuspicious IPs (>= {FAILED_THRESHOLD} failed attempts):")
+    flagged = False
+    for ip, count in result["failed_logins"].items():
+        if count >= FAILED_THRESHOLD:
+            print(f"  ALERT: {ip} ({count} failed attempts)")
+            flagged = True
+
+    if not flagged:
+        print("  None.")
 
 def main():
     log_path = "sample_auth.log"
