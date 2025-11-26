@@ -1,65 +1,51 @@
 # LogSentinel – Security Log Analysis & Event Detection Tool (Prototype)
 
-LogSentinel is a **work-in-progress security log analysis project** built in Python.  
-The goal is to simulate the early stages of a SIEM workflow:
+LogSentinel is a **Python-based security log analysis project** designed to simulate the core stages of a SIEM workflow:
 
 **Log ingestion → Parsing → Detection → Reporting**
 
-This project is part of my final year work, and I am actively expanding it with new parsing
-methods and security detection rules.
+This is an active **final-year work-in-progress project**, focused on building a lightweight detection engine capable of identifying suspicious authentication behavior using simple rule-based analysis.
 
+---
 
-## Current Prototype Features
+## 🚀 Current Prototype Features
 
-The current working version includes:
+The current prototype includes the essential components needed to parse authentication logs and detect abnormal login activity.
 
-### Log Ingestion
-Reads data from a sample authentication log file (`sample_auth.log`)
+---
 
-### Regex-Based Parsing
-Extracts:
-- timestamp  
-- log level  
-- login action (successful / failed)  
-- username  
-- source IP address  
+### 🔹 Log Ingestion  
+Reads log data from a sample authentication log file (`sample_auth.log`).
 
-### Failed Login Detection
-Counts failed login attempts per IP  
-Flags IPs with **5 or more failed attempts** → brute-force indicator
+---
 
-### Clean Console Report
-Generates an easy-to-read summary showing:
-- total log lines  
-- successfully parsed entries  
-- failed login counts  
-- suspicious IP addresses  
+### 🔹 Regex-Based Parsing  
+Each log entry is processed using Python regular expressions to extract key fields:
 
-### Next Steps (Planned Features)
-These features will be added in future commits:
+- Date and time  
+- Log level (INFO / WARN)  
+- Login action (successful / failed)  
+- Username  
+- Source IP address  
 
-Additional Detection Rules:
--SQL injection keywords
--Path traversal (../)
--Enumeration attempts
--HTTP error spikes (403/404/500 patterns)
+---
 
-Support for Multiple Log Types:
--Apache/Nginx access logs
--System event logs
--Application logs
+### 🔹 Failed Login Detection  
+Implements a basic brute-force detection rule:
 
-Exporting Alerts:
--JSON output
--CSV reports
+- Counts failed login attempts per IP address  
+- Flags IPs with **5 or more failed attempts**  
+- Helps identify repeated login failures from the same source (possible brute-force)
 
-Modular Architecture
--Separate modules for:
--parsing
--detection
--reporting
+---
 
-### Status
-This is an active work-in-progress project.
-More features will be added as I expand the detection engine and support additional log formats.
+### 🔹 Clean Console Report  
+After analysis, the tool generates a readable summary showing:
+
+- Total number of log entries  
+- Number of successfully parsed entries  
+- Failed login counts per IP  
+- Suspicious IPs exceeding the detection threshold  
+
+Example output:
 
