@@ -41,7 +41,8 @@ def analyze_log_file(path: str):
         "parsed": parsed,
         "failed_logins": failed_logins,
     }
-
+def print_report(result):
+    
 
 def main():
     log_path = "sample_auth.log"
