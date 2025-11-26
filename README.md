@@ -8,7 +8,7 @@ This is an active **final-year work-in-progress project**, focused on building a
 
 ---
 
-## 🚀 Current Prototype Features
+## Current Prototype Features
 
 The current prototype includes the essential components needed to parse authentication logs and detect abnormal login activity.
 
