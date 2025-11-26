@@ -70,3 +70,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# TODO: Add additional detection rules (SQLi, path traversal, error spikes)
+# TODO: Add JSON/CSV export
+# TODO: Add multi-log correlation support
